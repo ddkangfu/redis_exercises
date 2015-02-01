@@ -108,7 +108,7 @@ CACHES = {
 
 REDIS_SERVER = '127.0.0.1'
 REDIS_SERVER_PORT = 6379
-REDIS_SERVER_DB = 1
+REDIS_SERVER_DB = 0
 
 import redis
 redis_con = redis.StrictRedis(host=REDIS_SERVER, port=REDIS_SERVER_PORT, db=REDIS_SERVER_DB)
