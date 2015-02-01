@@ -1,1 +1,25 @@
-<h1>Name: {{ name }}</h1>
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <title>􏴏􏰪􏰎􏰦􏲾我的第一个Redis程序</title>
+    </head>
+    <body>
+        {% if name %}
+        <p>您的姓名是: {{ name }}</p>
+        {% else %}
+        <p>您还没有设置姓名。</p>
+        {% endif %}
+        <hr />
+        <h1>更改姓名</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="name">您的姓名：</label>
+                <input type="text" name="name" id="name" />
+            </p>
+            <p>
+                <button type="submit">提交</button>
+            </p>
+        </form>
+    </body>
+</html>
