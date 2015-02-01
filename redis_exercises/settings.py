@@ -83,7 +83,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR,'templates'),
+)
 
+
+"""
 CACHES = {
     'default': {
         'BACKEND': 'redis_cache.RedisCache',
@@ -99,3 +104,11 @@ CACHES = {
         },
     },
 }
+"""
+
+REDIS_SERVER = '127.0.0.1'
+REDIS_SERVER_PORT = 6379
+REDIS_SERVER_DB = 1
+
+import redis
+redis_con = redis.StrictRedis(host=REDIS_SERVER, port=REDIS_SERVER_PORT, db=REDIS_SERVER_DB)
