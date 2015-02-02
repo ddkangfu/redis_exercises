@@ -17,3 +17,5 @@ class  MainView(TemplateView):
         ctx['name'] = redis_con.get('name')
         return ctx
 
+class RegisterView(TemplateView):
+    template_name = 'main/register.html'
