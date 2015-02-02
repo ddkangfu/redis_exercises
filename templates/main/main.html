@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-    <head>
-        <title>􏴏􏰪􏰎􏰦􏲾我的第一个Redis程序</title>
-    </head>
-    <body>
+{% extends "base.html" %}
+
+{% block title %}􏴏􏰪􏰎􏰦􏲾我的第一个Redis程序{% endblock %}
+
+{% block layout %}
         {% if name %}
         <p>您的姓名是: {{ name }}</p>
         {% else %}
@@ -21,5 +20,4 @@
                 <button type="submit">提交</button>
             </p>
         </form>
-    </body>
-</html>
+{% endblock %}
