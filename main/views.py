@@ -1,4 +1,5 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
+from django.contrib.auth.forms import UserCreationForm
 
 from redis_exercises.settings import redis_con
 
@@ -17,5 +18,6 @@ class  MainView(TemplateView):
         ctx['name'] = redis_con.get('name')
         return ctx
 
-class RegisterView(TemplateView):
+class RegisterView(CreateView):
     template_name = 'main/register.html'
+    form_class = UserCreationForm
