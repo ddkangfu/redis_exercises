@@ -21,7 +21,7 @@ class  MainView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super(MainView, self).get_context_data(**kwargs)
         ctx['name'] = redis_con.get('name')
-        ctx['users'] = redis_con.smembers('users:name')
+        ctx['users'] = redis_con.hkeys('users:name')
         return ctx
 
 class RegisterView(TemplateView):
@@ -31,14 +31,13 @@ class RegisterView(TemplateView):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
-            #ID: users:count, Set: users:name, Data: user:#id
+            #ID: users:count, Hash: {users:name:  #id}, Data: user:#id
             #print dir(redis_con)
-            is_exist = redis_con.sismember('users:name', username)
+            is_exist = redis_con.hexists('users:name', username)
             if not is_exist:
                 #pipe =redis_con.pipeline()
                 user_id = redis_con.incr('users:count')
-                print '****', user_id
-                redis_con.sadd('users:name', username)
+                redis_con.hset('users:name', username, user_id)
                 redis_con.hmset('user:%d' % user_id, {'password': form.cleaned_data['password1']})
                 #result=pipe.execute()
 
