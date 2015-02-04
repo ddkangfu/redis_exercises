@@ -20,4 +20,10 @@
                 <button type="submit">提交</button>
             </p>
         </form>
+        <hr>
+        <h3>已注册用户</h3>
+        <hr />
+        {% for user in users %}
+            {{user}}&nbsp;
+        {% endfor %}
 {% endblock %}
