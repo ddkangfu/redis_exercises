@@ -54,6 +54,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'main.middlewares.StatisticsMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
