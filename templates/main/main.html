@@ -31,4 +31,10 @@
         {% for user in users %}
             {{user}}&nbsp;
         {% endfor %}
+        <hr />
+        <h3>在线用户</h3>
+        <hr />
+        {% for user in online_users %}
+            {{ user }} &nbsp;
+        {% endfor %}
 {% endblock %}

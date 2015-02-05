@@ -1,3 +1,6 @@
+
+import time
+
 from django.views.generic import TemplateView, CreateView
 #from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
@@ -22,6 +25,8 @@ class  MainView(TemplateView):
         ctx = super(MainView, self).get_context_data(**kwargs)
         ctx['name'] = redis_con.get('name')
         ctx['users'] = redis_con.hkeys('users:name')
+        ten_minutes_ago = time.time() - (10 * 60)
+        ctx['online_users'] = redis_con.zrangebyscore('users.online', ten_minutes_ago, '+inf')
         return ctx
 
 class RegisterView(TemplateView):
