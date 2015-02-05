@@ -3,6 +3,11 @@
 {% block title %}􏴏􏰪􏰎􏰦􏲾我的第一个Redis程序{% endblock %}
 
 {% block layout %}
+        {% if user.is_authenticated %}
+        <p>{{ user.username }} | <a href="{% url 'logout' %}?next={% url 'home' %}">注销</a></p>
+        {% else %}
+        <p><a href="{% url 'login' %}">登录</a></p>
+        {% endif %}
         {% if name %}
         <p>您的姓名是: {{ name }}</p>
         {% else %}

@@ -138,3 +138,6 @@ REDIS_SERVER_DB = 0
 
 import redis
 redis_con = redis.StrictRedis(host=REDIS_SERVER, port=REDIS_SERVER_PORT, db=REDIS_SERVER_DB)
+
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
