@@ -142,3 +142,5 @@ redis_con = redis.StrictRedis(host=REDIS_SERVER, port=REDIS_SERVER_PORT, db=REDI
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
+
+MINI_INTERVAL_OF_PV_STATISTICS = 3 #Secodes
